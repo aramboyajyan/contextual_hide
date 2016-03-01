@@ -6,7 +6,6 @@ name = Hide Contextual Links
 description = Allows you to hide contextual links for certain elements (e.g. Views, Nodes, Blocks).
 package = Other
 core = 7.x
-version = 7.x-1.0
 
 ; ------------------------------------------------------------------------------
 ; Dependencies
