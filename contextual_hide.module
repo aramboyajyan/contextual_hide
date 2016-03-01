@@ -1,0 +1,25 @@
+<?php
+
+/**
+ * @file
+ * Allows you to edit the configuration related to Contextual Links.
+ *
+ * Created by: Topsitemakers
+ * http://www.topsitemakers.com/
+ */
+
+/**
+ * Implements hook_menu().
+ */
+function contextual_hide_menu() {
+  $items['admin/config/user-interface/contextual-config'] = array(
+    'title' => 'Contextual Links Configuration',
+    'description' => 'Change Contextual Links configuration.',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('contextual_hide_admin_form'),
+    'access arguments' => array('administer site configuration'),
+    'file' => 'contextual_hide.admin.inc',
+  );
+
+  return $items;
+}
