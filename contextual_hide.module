@@ -23,3 +23,18 @@ function contextual_hide_menu() {
 
   return $items;
 }
+
+/**
+ * Implements hook_contextual_links_view_alter().
+ */
+function contextual_hide_contextual_links_view_alter(&$element, $items) {
+  $entities = variable_get('contextual_hide_contextual_links_entities', array());
+
+  if (
+    (isset($entities['views']) && $entities['views'] && isset($element['#element']['#views_contextual_links_info'])) ||
+    (isset($entities['block']) && $entities['block'] && isset($element['#element']['#block'])) ||
+    (isset($entities['nodes']) && $entities['nodes'] && isset($element['#element']['#node']))
+  ) {
+    unset($element['#links']);
+  }
+}
