@@ -1,0 +1,17 @@
+<?php
+
+/**
+ * @file
+ * Install related callbacks.
+ *
+ * Created by: Topsitemakers
+ * http://www.topsitemakers.com/
+ */
+
+/**
+ * Implements hook_uninstall().
+ */
+function contextual_hide_uninstall() {
+  // Remove our variables.
+  variable_del('contextual_hide_contextual_links_entities');
+}
