@@ -28,11 +28,19 @@ function contextual_hide_menu() {
  * Implements hook_contextual_links_view_alter().
  */
 function contextual_hide_contextual_links_view_alter(&$element, $items) {
+  // Get the list of entities for which the contextual links should be disabled.
+  //
+  // There probably could be a more optimized way to do this, but for now it can
+  // stay this way.
   $entities = variable_get('contextual_hide_contextual_links_entities', array());
 
+  // Unfortunately, there is no consistent way to check the parent entity.
   if (
+    // Views.
     (isset($entities['views']) && $entities['views'] && isset($element['#element']['#views_contextual_links_info'])) ||
+    // Blocks.
     (isset($entities['block']) && $entities['block'] && isset($element['#element']['#block'])) ||
+    // Nodes.
     (isset($entities['nodes']) && $entities['nodes'] && isset($element['#element']['#node']))
   ) {
     unset($element['#links']);
