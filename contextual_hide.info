@@ -17,4 +17,4 @@ dependencies[] = contextual
 ; Other
 ; ------------------------------------------------------------------------------
 ; Configuration URL
-; configure = 
+configure = admin/config/user-interface/contextual-config
